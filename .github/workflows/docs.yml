@@ -1,12 +1,11 @@
 # Workflow to build and deploy Sphinx documentation to GitHub Pages
-
 name: Deploy Documentation
 
 on:
   # Run on pushes to the main branch
   push:
     branches:
-      - main
+      - main  
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
@@ -30,23 +29,18 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y doxygen
 
       - name: Install Python dependencies for docs
-        run: pip install sphinx sphinx_rtd_theme breathe
+        run: pip install -r requirements.txt sphinx sphinx_rtd_theme breathe
 
       - name: Build Doxygen XML
-        # FIX: Use the correct working directory from your repository
-        working-directory: ./PyTransport-windows-main
         run: doxygen docs/Doxyfile
 
       - name: Build Sphinx HTML
-        # FIX: Use the correct working directory here as well
-        working-directory: ./PyTransport-windows-main
-        run: sphinx-build -b html docs/source docs/build/html
+        run: sphinx-build -P -b html docs/source docs/build/html
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # FIX: Update the path to the built HTML files to match the working directory
-          path: PyTransport-windows-main/docs/build/html
+          path: docs/build/html
 
       - name: Deploy to GitHub Pages
         id: deployment
