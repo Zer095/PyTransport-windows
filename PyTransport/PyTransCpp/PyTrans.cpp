@@ -2042,7 +2042,7 @@ static PyObject* MT_MPPAlpha(PyObject* self, PyObject *args)
 }
 
 
-/** \cond */ // Doxygen will start ignoring from here
+/** \cond */ 
 /**
  * @brief Documentation string for the PyTrans module.
  *
@@ -2052,10 +2052,10 @@ static PyObject* MT_MPPAlpha(PyObject* self, PyObject *args)
 static char PyTrans_docs[] =
     "This is PyTrans, a package for solving the moment transport equations of inflationary cosmology\n";
 
-/** \endcond */ // Doxygen will resume parsing from here
+
 
 // **************************************************************************************
-/** \cond */ // Doxygen will start ignoring from here
+
 static PyMethodDef PyTransDQ_methods[] = {{"H", (PyCFunction)MT_H,    METH_VARARGS, PyTrans_docs},{"Ep", (PyCFunction)MT_Ep,    METH_VARARGS, PyTrans_docs},{"Eta", (PyCFunction)MT_Eta,    METH_VARARGS, PyTrans_docs},{"nF", (PyCFunction)MT_fieldNumber,        METH_VARARGS, PyTrans_docs},{"nP", (PyCFunction)MT_paramNumber,        METH_VARARGS, PyTrans_docs},{"V", (PyCFunction)MT_V,            METH_VARARGS, PyTrans_docs},{"dV", (PyCFunction)MT_dV,                METH_VARARGS, PyTrans_docs},  {"ddV", (PyCFunction)MT_ddV,                METH_VARARGS, PyTrans_docs},  {"backEvolve", (PyCFunction)MT_backEvolve,        METH_VARARGS, PyTrans_docs},  {"sigEvolve", (PyCFunction)MT_sigEvolve,        METH_VARARGS, PyTrans_docs},  {"gamEvolve", (PyCFunction)MT_gamEvolve,        METH_VARARGS, PyTrans_docs},    {"alphaEvolve", (PyCFunction)MT_alphaEvolve,        METH_VARARGS, PyTrans_docs}, {"MPP2", (PyCFunction)MT_MPP2,        METH_VARARGS, PyTrans_docs}, {"MPPSigma", (PyCFunction)MT_MPPSigma,        METH_VARARGS, PyTrans_docs}, {"MPP3", (PyCFunction)MT_MPP3,        METH_VARARGS, PyTrans_docs},{"MPPAlpha", (PyCFunction)MT_MPPAlpha,        METH_VARARGS, PyTrans_docs},{NULL, NULL, 0, NULL}};//FuncDef
 // do not alter the comment at the end of the preceding line -- it is used by the preprocessor
 
@@ -2066,7 +2066,7 @@ extern "C" {
 static struct PyModuleDef PyTransModule = {PyModuleDef_HEAD_INIT, "PyTransDQ", PyTrans_docs, -1, PyTransDQ_methods}; //modDef
 // do not alter the comment at the end of the preceding line -- it is used by the preprocessor
 // **************************************************************************************
-PyMODINIT_FUNC PyInit_PyTransDQ(void)    {    PyObject *m = PyModule_Create(&PyTransModule); import_array(); return m;} //initFunc
+PyMODINIT_FUNC PyInit_PyTransDQ(void){PyObject *m = PyModule_Create(&PyTransModule); import_array(); return m;}; //initFunc
 // do not alter the comment at the end of the preceding line -- it is used by the preprocessor
 #ifdef __cplusplus
 }
