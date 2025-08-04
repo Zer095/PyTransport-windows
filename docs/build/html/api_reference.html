@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; PyTransport 3.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=acc74ff5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to PyTransport3.0’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyTransport
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-utility-scripts-pytransscripts-py">Python Utility Scripts (<cite>PyTransScripts.py</cite>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.ICs"><code class="docutils literal notranslate"><span class="pre">ICs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.ICsBE"><code class="docutils literal notranslate"><span class="pre">ICsBE()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.ICsBM"><code class="docutils literal notranslate"><span class="pre">ICsBM()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.MPPSpectra"><code class="docutils literal notranslate"><span class="pre">MPPSpectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.alpBetSpecMpi"><code class="docutils literal notranslate"><span class="pre">alpBetSpecMpi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.alpBetSpectra"><code class="docutils literal notranslate"><span class="pre">alpBetSpectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.eqSpecMpi"><code class="docutils literal notranslate"><span class="pre">eqSpecMpi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.eqSpectra"><code class="docutils literal notranslate"><span class="pre">eqSpectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.kexitN"><code class="docutils literal notranslate"><span class="pre">kexitN()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.kexitPhi"><code class="docutils literal notranslate"><span class="pre">kexitPhi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.pSpecMpi"><code class="docutils literal notranslate"><span class="pre">pSpecMpi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.pSpectra"><code class="docutils literal notranslate"><span class="pre">pSpectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.pSpectraMPP"><code class="docutils literal notranslate"><span class="pre">pSpectraMPP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.unPackAlp"><code class="docutils literal notranslate"><span class="pre">unPackAlp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#PyTransport.PyTransPy.PyTransScripts.unPackSig"><code class="docutils literal notranslate"><span class="pre">unPackSig()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#core-c-functions-pytrans-cpp">Core C++ Functions (<cite>PyTrans.cpp</cite>)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyTransport</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<span id="id1"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<p>This section provides a detailed reference for both the Python utility scripts and the core C++ extension functions.</p>
+<section id="python-utility-scripts-pytransscripts-py">
+<h2>Python Utility Scripts (<cite>PyTransScripts.py</cite>)<a class="headerlink" href="#python-utility-scripts-pytransscripts-py" title="Link to this heading"></a></h2>
+<p>These functions provide helpful utilities for setting up initial conditions and running the numerical solvers.</p>
+<dl class="py function" id="module-PyTransport.PyTransPy.PyTransScripts">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.ICs">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">ICs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.ICs" title="Link to this definition"></a></dt>
+<dd><p>This function finds the earliest initial condition between the massless condition (ICsBM)
+and the horizon exit condition (ICsBE). It calls the <cite>ICsBE</cite> and <cite>ICsBM</cite> functions to get
+the initial conditions based on different criteria (horizon exit and massless condition).
+It returns the initial conditions corresponding to the earliest condition in time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NB</strong> (<em>float</em>) – The number of e-folds before the massless or horizon exit conditions.</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – The wavenumber used to determine the horizon crossing or massless condition.</p></li>
+<li><p><strong>back</strong> (<em>ndarray</em>) – A 2D array representing the background evolution.</p></li>
+<li><p><strong>params</strong> (<em>ndarray</em>) – A 1D array representing the model parameters.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model that provides methods like <cite>H()</cite> and <cite>ddV()</cite> for background evolution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>NExitMinus</strong> (<em>float</em>) – The time (e-fold) when the earliest condition is met.</p></li>
+<li><p><strong>fieldExitMinus</strong> (<em>ndarray</em>) – The background evolution at the time <cite>NExitMinus</cite>, representing the initial conditions.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p>This function compares the results from the horizon exit condition (<cite>ICsBE</cite>) and the massless condition (<cite>ICsBM</cite>).</p></li>
+<li><p><em>It returns the initial conditions for the earliest of these two conditions. This is useful when you need to determine</em></p></li>
+<li><p><em>the initial conditions based on either the massless condition or the horizon exit condition, whichever occurs first.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.ICsBE">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">ICsBE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NBExit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.ICsBE" title="Link to this definition"></a></dt>
+<dd><p>This function searches for the initial conditions at least <cite>NBExit</cite> e-folds before the horizon exit of a given
+wavenumber <cite>k</cite>. It finds the horizon exit point by checking when the condition for horizon crossing is met,
+i.e., when the comoving wave number <cite>k</cite> exits the horizon. The background evolution must be finely sampled to
+ensure that the initial conditions are set correctly before the horizon exit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NBExit</strong> (<em>float</em>) – The number of e-folds before the horizon exit to find the initial conditions.</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – The wavenumber (k) used to determine the horizon crossing.</p></li>
+<li><p><strong>back</strong> (<em>ndarray</em>) – A 2D array representing the background evolution.</p></li>
+<li><p><strong>params</strong> (<em>ndarray</em>) – A 1D array representing the model parameters.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model that provides methods like <cite>H()</cite> to calculate the Hubble parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>NexitMinus</strong> (<em>float</em>) – The time (e-fold) at which the horizon exit condition is met.</p></li>
+<li><p><strong>backExitMinus</strong> (<em>ndarray</em>) – The background evolution at the time <cite>NexitMinus</cite>, representing the initial conditions.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p><em>This function iterates through the background evolution and checks when the condition for horizon crossing is</em></p></li>
+<li><p>met, which is determined by the comoving wave number <cite>k</cite> and the Hubble parameter. Once this condition is met,</p></li>
+<li><p>the function ensures that the initial conditions are set <cite>NBExit</cite> e-folds before the horizon exit.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.ICsBM">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">ICsBM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NBMassless</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.ICsBM" title="Link to this definition"></a></dt>
+<dd><p>This function searches for the initial conditions at least <cite>NBMassless</cite> e-folds before the massless point.
+The massless point is identified by finding when the effective mass squared becomes positive.
+It works by calculating the largest eigenvalue of the mass matrix for the background evolution and adjusting the
+initial conditions accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NBMassless</strong> (<em>float</em>) – The number of e-folds before the massless point to find the initial conditions.</p></li>
+<li><p><strong>k</strong> (<em>float</em>) – The wavenumber (k) used in calculating the effective mass.</p></li>
+<li><p><strong>back</strong> (<em>ndarray</em>) – A 2D array representing the background evolution.</p></li>
+<li><p><strong>params</strong> (<em>ndarray</em>) – A 1D array representing the model parameters.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model that provides methods like <cite>ddV()</cite> to calculate the potential.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>NexitMinus</strong> (<em>float</em>) – The time (e-fold) at which the massless condition is reached.</p></li>
+<li><p><strong>backExitMinus</strong> (<em>ndarray</em>) – The background evolution at the time <cite>NexitMinus</cite>, representing the initial conditions.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p><em>This function iteratively searches the background evolution for the point where the effective mass squared</em></p></li>
+<li><p><em>becomes positive, indicating the massless condition is met. It then ensures that the initial conditions are</em></p></li>
+<li><p>set <cite>NBMassless</cite> e-folds before this massless point and returns both the corresponding time and initial conditions.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.MPPSpectra">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">MPPSpectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.MPPSpectra" title="Link to this definition"></a></dt>
+<dd><p>Computes the power spectrum and bispectrum for a given set of wavenumbers (kA)
+using the MPP (Multi-Point Propagator) method.</p>
+<p>The function iterates over each wavenumber in kA, determines initial conditions,
+and evolves the system using MPP-based numerical methods provided in the MTE object.</p>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>kA<span class="classifier">array-like</span></dt><dd><p>A 1D array of wavenumbers for which the power spectrum and bispectrum are computed.</p>
+</dd>
+<dt>back<span class="classifier">array-like</span></dt><dd><p>A 2D array containing the background evolution data.</p>
+</dd>
+<dt>params<span class="classifier">array-like</span></dt><dd><p>A set of model parameters used for evolution calculations.</p>
+</dd>
+<dt>NB<span class="classifier">float</span></dt><dd><p>The number of e-folds before the massless or horizon exit condition.</p>
+</dd>
+<dt>tols<span class="classifier">array-like</span></dt><dd><p>A set of tolerance values for numerical integration.</p>
+</dd>
+<dt>MTE<span class="classifier">object</span></dt><dd><p>A model object that provides numerical solvers such as <cite>MPP3</cite> and <cite>MPPAlpha</cite>.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>zzOut<span class="classifier">array-like</span></dt><dd><p>The computed power spectrum values for each k in kA.</p>
+</dd>
+<dt>zzzOut<span class="classifier">array-like</span></dt><dd><p>The computed bispectrum values for each k in kA.</p>
+</dd>
+<dt>times<span class="classifier">array-like</span></dt><dd><p>The computation time for each k in kA.</p>
+</dd>
+</dl>
+</section>
+<section id="description">
+<h3>Description:<a class="headerlink" href="#description" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>This function loops over the provided kA values.</p></li>
+<li><p>For each k, it computes the initial conditions using <cite>ICs</cite>.</p></li>
+<li><p>It then evolves the system using <cite>MPP3</cite> and <cite>MPPAlpha</cite> methods.</p></li>
+<li><p>The power spectrum and bispectrum are extracted from the results.</p></li>
+<li><p>Finally, it returns the computed values along with computation times.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.alpBetSpecMpi">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">alpBetSpecMpi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsnaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.alpBetSpecMpi" title="Link to this definition"></a></dt>
+<dd><p>Parallelized computation of the bispectrum using the alpha-beta parameterization.</p>
+<section id="id2">
+<h3>Parameters:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>kt<span class="classifier">float</span></dt><dd><p>The total wavenumber of the triangle configuration.</p>
+</dd>
+<dt>alpha<span class="classifier">array-like</span></dt><dd><p>Array of alpha values (controls the shape of the triangle).</p>
+</dd>
+<dt>beta<span class="classifier">array-like</span></dt><dd><p>Array of beta values (controls the shape of the triangle).</p>
+</dd>
+<dt>back<span class="classifier">2D array-like</span></dt><dd><p>Background evolution data.</p>
+</dd>
+<dt>params<span class="classifier">array-like</span></dt><dd><p>Model parameters used for evolution calculations.</p>
+</dd>
+<dt>NB<span class="classifier">float</span></dt><dd><p>Number of e-folds before the horizon exit.</p>
+</dd>
+<dt>nsnaps<span class="classifier">int</span></dt><dd><p>Number of snapshots at which to evaluate the bispectrum.</p>
+</dd>
+<dt>tols<span class="classifier">array-like</span></dt><dd><p>Numerical tolerance values for solving the evolution equations.</p>
+</dd>
+<dt>MTE<span class="classifier">object</span></dt><dd><p>Model object that provides numerical solvers.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h3>Returns:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Bztot<span class="classifier">3D array</span></dt><dd><p>The bispectrum values for each (alpha, beta, time snapshot).</p>
+</dd>
+<dt>Pz1tot, Pz2tot, Pz3tot<span class="classifier">3D arrays</span></dt><dd><p>Power spectrum values for the three sides of the triangle.</p>
+</dd>
+<dt>timestot<span class="classifier">2D array</span></dt><dd><p>Computation time for each (alpha, beta) combination.</p>
+</dd>
+<dt>snaps<span class="classifier">1D array</span></dt><dd><p>Time snapshots at which the bispectrum is evaluated.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.alpBetSpectra">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">alpBetSpectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaIn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">betaIn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsnaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.alpBetSpectra" title="Link to this definition"></a></dt>
+<dd><p>Computes the bispectrum using the alpha-beta parameterization.</p>
+<section id="id4">
+<h3>Parameters:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>kt<span class="classifier">float</span></dt><dd><p>The total wavenumber of the triangle configuration.</p>
+</dd>
+<dt>alphaIn<span class="classifier">array-like</span></dt><dd><p>Array of alpha values (parameter controlling the shape of the triangle).</p>
+</dd>
+<dt>betaIn<span class="classifier">array-like</span></dt><dd><p>Array of beta values (parameter controlling the shape of the triangle).</p>
+</dd>
+<dt>back<span class="classifier">2D array-like</span></dt><dd><p>Background evolution data, with the first column being N (e-folds)
+and the remaining columns containing background fields.</p>
+</dd>
+<dt>params<span class="classifier">array-like</span></dt><dd><p>Model parameters used for evolution calculations.</p>
+</dd>
+<dt>NB<span class="classifier">float</span></dt><dd><p>Number of e-folds before the massless or horizon exit condition.</p>
+</dd>
+<dt>nsnaps<span class="classifier">int</span></dt><dd><p>Number of snapshots at which to evaluate the bispectrum.</p>
+</dd>
+<dt>tols<span class="classifier">array-like</span></dt><dd><p>Numerical tolerance values for solving the evolution equations.</p>
+</dd>
+<dt>MTE<span class="classifier">object</span></dt><dd><p>Model object that provides numerical solvers.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h3>Returns:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>biAOut<span class="classifier">3D array</span></dt><dd><p>The bispectrum values for each (alpha, beta, time snapshot).</p>
+</dd>
+<dt>zz1, zz2, zz3<span class="classifier">3D arrays</span></dt><dd><p>Power spectrum values for the three sides of the triangle.</p>
+</dd>
+<dt>times<span class="classifier">2D array</span></dt><dd><p>Computation time for each (alpha, beta) combination.</p>
+</dd>
+<dt>snaps<span class="classifier">1D array</span></dt><dd><p>Time snapshots (e-folds) at which the bispectrum is evaluated.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.eqSpecMpi">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">eqSpecMpi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.eqSpecMpi" title="Link to this definition"></a></dt>
+<dd><p>Parallelized computation of the bispectrum using the alpha-beta parameterization.</p>
+<p>The function distributes the calculation of power and bispectrum across multiple processes,
+allowing large-scale calculations to be performed efficiently.</p>
+<section id="id6">
+<h3>Parameters:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>kA<span class="classifier">array-like</span></dt><dd><p>A 1D array of wavenumbers for which the power spectrum and bispectrum are computed.</p>
+</dd>
+<dt>back<span class="classifier">array-like</span></dt><dd><p>A 2D array containing the background evolution data.</p>
+</dd>
+<dt>params<span class="classifier">array-like</span></dt><dd><p>A set of model parameters used for evolution calculations.</p>
+</dd>
+<dt>NB<span class="classifier">float</span></dt><dd><p>The number of e-folds before the massless or horizon exit condition.</p>
+</dd>
+<dt>tols<span class="classifier">array-like</span></dt><dd><p>A set of tolerance values for numerical integration.</p>
+</dd>
+<dt>MTE<span class="classifier">object</span></dt><dd><p>A model object that provides numerical solvers.</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h3>Returns:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>zzOut<span class="classifier">array-like (only returned by rank 0)</span></dt><dd><p>The computed power spectrum values.</p>
+</dd>
+<dt>zzzOut<span class="classifier">array-like (only returned by rank 0)</span></dt><dd><p>The computed bispectrum values.</p>
+</dd>
+<dt>timesOut<span class="classifier">array-like (only returned by rank 0)</span></dt><dd><p>The computation time for each k in kA.</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h3>Description:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The function is executed in parallel using MPI.</p></li>
+<li><p>It divides the wavenumber array <cite>kA</cite> among available processes.</p></li>
+<li><p>Each process computes the power spectrum and bispectrum for its assigned k values.</p></li>
+<li><p>The results are gathered by the root process (rank 0) and returned.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.eqSpectra">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">eqSpectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.eqSpectra" title="Link to this definition"></a></dt>
+<dd><p>This function calculates both the power spectrum and bispectrum (in an equilateral configuration) for each wavenumber
+in <cite>kA</cite> at the end of the background evolution provided by the <cite>back</cite> array. The calculations are performed using the
+model defined in the <cite>MTE</cite> object, and the results are returned for each element of <cite>kA</cite>. The power spectrum is calculated
+using the <cite>alphaEvolve</cite> method, which evolves the system in time, while the bispectrum is also computed in an equilateral
+triangle configuration (i.e., with k1 = k2 = k3).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kA</strong> (<em>ndarray</em>) – A 1D array containing the wavenumbers for which the power spectrum and bispectrum will be calculated.</p></li>
+<li><p><strong>back</strong> (<em>ndarray</em>) – A 2D array containing the background evolution at different e-folds.</p></li>
+<li><p><strong>params</strong> (<em>ndarray</em>) – A 1D array representing the model parameters.</p></li>
+<li><p><strong>NB</strong> (<em>float</em>) – The number of e-folds before the massless or horizon exit condition.</p></li>
+<li><p><strong>tols</strong> (<em>ndarray</em>) – A 1D array containing the tolerance values used in the numerical solver.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model that provides methods like <cite>alphaEvolve</cite> to calculate the power spectrum and bispectrum.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>zzOut</strong> (<em>ndarray</em>) – A 1D array containing the calculated power spectrum for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><strong>zzzOut</strong> (<em>ndarray</em>) – A 1D array containing the calculated bispectrum for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><strong>times</strong> (<em>ndarray</em>) – A 1D array containing the computation times for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p>This function calculates the power spectrum and bispectrum for each wavenumber in <cite>kA</cite> using an equilateral triangle</p></li>
+<li><p>configuration (k1 = k2 = k3). It does so by evolving the system using the <cite>alphaEvolve</cite> method provided by the <cite>MTE</cite> object.</p></li>
+<li><p><strong>The results are returned in two separate arrays</strong> (one for the power spectrum (<cite>zzOut</cite>) and one for the bispectrum (<cite>zzzOut</cite>).)</p></li>
+<li><p><em>The computation times for each wavenumber are also recorded.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.kexitN">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">kexitN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Nexit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.kexitN" title="Link to this definition"></a></dt>
+<dd><p>Compute the wavenumber k that exits the horizon at Nexit.</p>
+<section id="id9">
+<h3>Parameters:<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Nexit<span class="classifier">float</span></dt><dd><p>The number of e-folds at which we want to determine the horizon exit wavenumber k.</p>
+</dd>
+<dt>back<span class="classifier">2D array-like</span></dt><dd><p>Background evolution data where:
+- <cite>back[:,0]</cite> contains the number of e-folds (N),
+- Other columns contain background variables.</p>
+</dd>
+<dt>params<span class="classifier">array-like</span></dt><dd><p>Model parameters for evolution calculations.</p>
+</dd>
+<dt>MTE<span class="classifier">object</span></dt><dd><p>Model object providing the Hubble function H.</p>
+</dd>
+<dt>exact<span class="classifier">bool, optional</span></dt><dd><p>If True, may apply a more precise calculation (not implemented in this version).</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h3>Returns:<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>k<span class="classifier">float</span></dt><dd><p>The wavenumber k that exits the horizon at Nexit.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.kexitPhi">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">kexitPhi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PhiExit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.kexitPhi" title="Link to this definition"></a></dt>
+<dd><p>Compute the wavenumber k that exits the horizon when the field reaches PhiExit.</p>
+<section id="id11">
+<h3>Parameters:<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>PhiExit<span class="classifier">float</span></dt><dd><p>The value of the field Φ at which we want to find the corresponding k-mode.</p>
+</dd>
+<dt>n<span class="classifier">int</span></dt><dd><p>Column index in <cite>back</cite> that contains the field value Φ.</p>
+</dd>
+<dt>back<span class="classifier">2D array-like</span></dt><dd><p>Background evolution data where:
+- <cite>back[:,0]</cite> contains the number of e-folds (N),
+- <cite>back[:,n]</cite> contains the field value Φ(N),
+- Other columns contain background variables.</p>
+</dd>
+<dt>params<span class="classifier">array-like</span></dt><dd><p>Model parameters used for evolution calculations.</p>
+</dd>
+<dt>MTE<span class="classifier">object</span></dt><dd><p>Model object that provides the function to compute the Hubble parameter H.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h3>Returns:<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>k<span class="classifier">float</span></dt><dd><p>The wavenumber k that exits the horizon at Φ = PhiExit.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.pSpecMpi">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">pSpecMpi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.pSpecMpi" title="Link to this definition"></a></dt>
+<dd><p>This function calculates the power spectrum for each element in kA (wavenumbers) at the end of the background evolution
+(from the <cite>back</cite> array) using parallel computing with MPI (Message Passing Interface). The task is distributed across
+multiple processes. Each process calculates the power spectrum for a subset of <cite>kA</cite> and the results are combined at the
+root process (rank 0).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kA</strong> (<em>ndarray</em>) – A 1D array containing the wavenumbers for which the power spectrum will be calculated.</p></li>
+<li><p><strong>back</strong> (<em>ndarray</em>) – A 2D array containing the background evolution at different e-folds.</p></li>
+<li><p><strong>params</strong> (<em>ndarray</em>) – A 1D array representing the model parameters.</p></li>
+<li><p><strong>NB</strong> (<em>float</em>) – The number of e-folds before the massless or horizon exit condition.</p></li>
+<li><p><strong>tols</strong> (<em>ndarray</em>) – A 1D array containing the tolerance values (absolute and relative) used in the numerical solver.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model that provides methods like <cite>sigEvolve</cite> to calculate the power spectrum.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>zzOut</strong> (<em>ndarray</em>) – A 1D array containing the calculated power spectrum values for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><strong>timesOut</strong> (<em>ndarray</em>) – A 1D array containing the computation times for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p>This function uses MPI to distribute the task of calculating the power spectrum for a given set of wavenumbers <cite>kA</cite></p></li>
+<li><p>across multiple processes. The computation is performed by dividing the <cite>kA</cite> array into roughly equal parts for each</p></li>
+<li><p><em>process. Each process computes its portion of the power spectrum and then sends the results to the root process (rank 0).</em></p></li>
+<li><p><em>The root process collects the results from all processes and combines them into the final output.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.pSpectra">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">pSpectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.pSpectra" title="Link to this definition"></a></dt>
+<dd><p>This function calculates the power spectrum at each value of k in the input array <cite>kA</cite> at the end of the background evolution (from the <cite>back</cite> array).
+It performs the calculation for each wavenumber <cite>k</cite> by finding the initial conditions using the <cite>ICs</cite> function and then evolving the system using the <cite>sigEvolve</cite> method
+from the MTE object. It returns the power spectrum values and the computation times for each <cite>k</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kA</strong> (<em>ndarray</em>) – A 1D array containing the different wavenumbers (k) for which the power spectrum will be calculated.</p></li>
+<li><p><strong>back</strong> (<em>ndarray</em>) – A 2D array containing the background evolution at different e-folds.</p></li>
+<li><p><strong>params</strong> (<em>ndarray</em>) – A 1D array representing the parameters of the model.</p></li>
+<li><p><strong>NB</strong> (<em>float</em>) – The number of e-folds before the massless or horizon exit condition.</p></li>
+<li><p><strong>tols</strong> (<em>ndarray</em>) – A 1D array containing the tolerance values (absolute and relative) used in the numerical solver.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model that provides methods like <cite>sigEvolve</cite> to evolve the system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>zzOut</strong> (<em>ndarray</em>) – A 1D array containing the calculated power spectrum values for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><strong>times</strong> (<em>ndarray</em>) – A 1D array containing the computation times for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p>This function calculates the power spectrum at the end of the background evolution for each wavenumber <cite>k</cite>.</p></li>
+<li><p>It first finds the initial conditions using the <cite>ICs</cite> function, then evolves the system using the <cite>sigEvolve</cite></p></li>
+<li><p><em>method, and finally stores the resulting power spectrum values at the last time step.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.pSpectraMPP">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">pSpectraMPP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.pSpectraMPP" title="Link to this definition"></a></dt>
+<dd><p>This function calculates the power spectrum at the end of the background evolution (from the <cite>back</cite> array) for each
+wavenumber in <cite>kA</cite> using the MPP (Mean Particle Production) method. The function finds the initial conditions using
+the <cite>ICs</cite> function, then evolves the system using MTE methods: <cite>MPP2</cite> for the evolution of the background field and
+<cite>MPPSigma</cite> to calculate the power spectrum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kA</strong> (<em>ndarray</em>) – A 1D array containing the different wavenumbers (k) for which the power spectrum will be calculated.</p></li>
+<li><p><strong>back</strong> (<em>ndarray</em>) – A 2D array containing the background evolution at different e-folds.</p></li>
+<li><p><strong>params</strong> (<em>ndarray</em>) – A 1D array representing the model parameters.</p></li>
+<li><p><strong>NB</strong> (<em>float</em>) – The number of e-folds before the massless or horizon exit condition.</p></li>
+<li><p><strong>tols</strong> (<em>ndarray</em>) – A 1D array containing the tolerance values (absolute and relative) used in the numerical solver.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model that provides methods like <cite>MPP2</cite> and <cite>MPPSigma</cite> to calculate the power spectrum.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>zzOut</strong> (<em>ndarray</em>) – A 1D array containing the calculated power spectrum values for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><strong>times</strong> (<em>ndarray</em>) – A 1D array containing the computation times for each wavenumber in <cite>kA</cite>.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p><em>This function calculates the power spectrum at the end of the background evolution using the MPP method. For each</em></p></li>
+<li><p>wavenumber <cite>k</cite>, it first finds the initial conditions using the <cite>ICs</cite> function, evolves the system using <cite>MPP2</cite>,</p></li>
+<li><p>and finally calculates the power spectrum using <cite>MPPSigma</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.unPackAlp">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">unPackAlp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threePtOut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.unPackAlp" title="Link to this definition"></a></dt>
+<dd><p>This function unpacks the components of the input array <cite>threePtOut</cite> into individual variables
+representing different components of the model. It returns the components in a reshaped format
+suitable for further analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>threePtOut</strong> (<em>ndarray</em>) – A multi-dimensional array containing the results of a computation. The size of this array is
+expected to match a specific formula based on the number of fields <cite>nF</cite>.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model. It provides the method <cite>nF()</cite> to return the number of fields.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>zetaMs</strong> (<em>ndarray</em>) – A 2D array representing the first component (zetaMs) extracted from <cite>threePtOut</cite>.</p></li>
+<li><p><strong>sig1R</strong> (<em>ndarray</em>) – A 3D array (2*nF x 2*nF) representing the first signature matrix (sig1R) extracted from <cite>threePtOut</cite>.</p></li>
+<li><p><strong>sig2R</strong> (<em>ndarray</em>) – A 3D array (2*nF x 2*nF) representing the second signature matrix (sig2R) extracted from <cite>threePtOut</cite>.</p></li>
+<li><p><strong>sig3R</strong> (<em>ndarray</em>) – A 3D array (2*nF x 2*nF) representing the third signature matrix (sig3R) extracted from <cite>threePtOut</cite>.</p></li>
+<li><p><strong>alpha</strong> (<em>ndarray</em>) – A 4D array (2*nF x 2*nF x 2*nF) representing the alpha component extracted from <cite>threePtOut</cite>.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p>The function checks the dimensionality of <cite>threePtOut</cite> and extracts the relevant components into</p></li>
+<li><p><em>separate variables. These components are then reshaped into the required dimensions and returned.</em></p></li>
+<li><p><em>Python Prototype</em></p></li>
+<li><p><em>—————-</em></p></li>
+<li><p><em>zetaMs, sig1R, sig2R, sig3R, alpha = unPackAlp(threePtOut, MTE)</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="PyTransport.PyTransPy.PyTransScripts.unPackSig">
+<span class="sig-prename descclassname"><span class="pre">PyTransport.PyTransPy.PyTransScripts.</span></span><span class="sig-name descname"><span class="pre">unPackSig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">twoPtOut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MTE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyTransport.PyTransPy.PyTransScripts.unPackSig" title="Link to this definition"></a></dt>
+<dd><p>This function unpacks the components of the input array <cite>twoPtOut</cite> into individual variables
+representing the zeta and signature matrices (sig). It reshapes and returns the signature matrix
+in a format suitable for further analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>twoPtOut</strong> (<em>ndarray</em>) – A multi-dimensional array containing the results of a computation. The size of this array is
+expected to match a specific formula based on the number of fields <cite>nF</cite>.</p></li>
+<li><p><strong>MTE</strong> (<em>object</em>) – An object representing the model. It provides the method <cite>nF()</cite> to return the number of fields.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>zeta</strong> (<em>ndarray</em>) – A 1D array representing the first component (zeta) extracted from <cite>twoPtOut</cite>.</p></li>
+<li><p><strong>sig</strong> (<em>ndarray</em>) – A 3D array (2*nF x 2*nF) representing the signature matrix (sig) extracted from <cite>twoPtOut</cite>.</p></li>
+<li><p><em>Description</em></p></li>
+<li><p><em>———–</em></p></li>
+<li><p>The function checks the dimensionality of <cite>twoPtOut</cite> and extracts the relevant components into</p></li>
+<li><p><em>separate variables. These components are then reshaped into the required dimensions and returned.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="core-c-functions-pytrans-cpp">
+<h2>Core C++ Functions (<cite>PyTrans.cpp</cite>)<a class="headerlink" href="#core-c-functions-pytrans-cpp" title="Link to this heading"></a></h2>
+<p>These are the core numerical functions compiled from C++ that perform the heavy lifting for the transport calculations. The documentation is generated directly from the C++ source code comments.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfile: Cannot find file “PyTrans.cpp </p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to PyTransport3.0’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Andrea Costantini, David Mulryne, John W. Ronayne.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
