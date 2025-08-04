@@ -6,7 +6,7 @@
  * It provides the numerical backbone for computing primordial correlators in inflationary cosmology,
  * implementing both the standard Transport formalism and the Multi-point propagator (MPP) approach.
  *
- * @version 3.0.7 (Corrected Logic and Memory Initialization)
+ * @version 3.0.8 (Final Syntax Correction)
  * @author Andrea Costantini, David Mulryne, John W. Ronayne
  * @date Sat Aug 02 16:03:00 2025
  *
