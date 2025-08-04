@@ -1408,7 +1408,7 @@ static PyObject* MT_MPPSigma(PyObject* self, PyObject *args)
         return PyArray_Return(sigOut);
     }
 }
-/** \cond */ // Doxygen will start ignoring from here
+/** @cond */ 
 /**
  * @brief Handles integration errors by temporarily adjusting tolerances or reporting failures.
  *
@@ -1498,7 +1498,7 @@ void handleIntegrationError(int &flag, npy_intp ii, double* N,
         }
     }
 }
-/** \endcond */ // Doxygen will resume parsing from here
+/** @endcond */ 
 
 /**
  * @brief Computes the evolution of the 3-point Multi-Point Propagator (MPP3) matrices.
@@ -2042,7 +2042,7 @@ static PyObject* MT_MPPAlpha(PyObject* self, PyObject *args)
 }
 
 
-/** \cond */ 
+/** @cond */ 
 static char PyTrans_docs[] =
     "This is PyTrans, a package for solving the moment transport equations of inflationary cosmology\n";
 
@@ -2061,4 +2061,4 @@ PyMODINIT_FUNC PyInit_PyTransDQ(void){PyObject *m = PyModule_Create(&PyTransModu
 #ifdef __cplusplus
 }
 #endif
-/** \endcond */
+/** @endcond */
