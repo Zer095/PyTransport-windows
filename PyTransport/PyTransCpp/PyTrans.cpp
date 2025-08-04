@@ -2060,22 +2060,17 @@ static PyMethodDef PyTransDQ_methods[] = {{"H", (PyCFunction)MT_H,    METH_VARAR
 // do not alter the comment at the end of the preceding line -- it is used by the preprocessor
 /** \endcond */ // Doxygen will resume parsing from here
 
+/** \cond */ // Doxygen will start ignoring from here
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-// **************************************************************************************
-/** \cond */ // Doxygen will start ignoring from here
+*******************************************************************************
 static struct PyModuleDef PyTransModule = {PyModuleDef_HEAD_INIT, "PyTransDQ", PyTrans_docs, -1, PyTransDQ_methods}; //modDef
 // do not alter the comment at the end of the preceding line -- it is used by the preprocessor
-/** \endcond */ // Doxygen will resume parsing from here
 // **************************************************************************************
-
-/** \cond */ // Doxygen will start ignoring from here
 PyMODINIT_FUNC PyInit_PyTransDQ(void)    {    PyObject *m = PyModule_Create(&PyTransModule); import_array(); return m;} //initFunc
-/** \endcond */ // Doxygen will resume parsing from here
 // do not alter the comment at the end of the preceding line -- it is used by the preprocessor
-
 #ifdef __cplusplus
 }
 #endif
+/** \endcond */ // Doxygen will resume parsing from here
