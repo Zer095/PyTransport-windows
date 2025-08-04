@@ -18,3 +18,4 @@ scipy
 six
 sympy
 pytest
+sphinx
