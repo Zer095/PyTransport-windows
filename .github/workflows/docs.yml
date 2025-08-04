@@ -29,14 +29,16 @@ jobs:
       - name: Install Doxygen
         run: sudo apt-get update && sudo apt-get install -y doxygen
 
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt sphinx # Assumes you have a requirements.txt file
+      - name: Install Python dependencies for docs
+        run: pip install sphinx sphinx_rtd_theme breathe
+
+      # --- DEBUGGING STEP ---
+      # This will print a list of all files to help us find the correct path.
+      - name: List files in repository
+        run: ls -R
 
       - name: Build Doxygen XML
         run: doxygen docs/Doxyfile
-
-      - name: Install Sphinx
-        run: pip install sphinx
 
       - name: Build Sphinx HTML
         run: sphinx-build -b html docs/source docs/build/html
@@ -48,4 +50,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4  
+        uses: actions/deploy-pages@v4
