@@ -35,7 +35,6 @@ jobs:
         run: doxygen docs/Doxyfile
 
       - name: Build Sphinx HTML
-        working-directory: ../
         run: sphinx-build -P -b html docs/source docs/build/html
 
       - name: Upload GitHub Pages artifact
